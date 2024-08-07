@@ -1,5 +1,6 @@
 import products from '../assets/products.json';
 import realm from '../schema/realmConfig';
+import Realm from 'realm';
 
 export const loadProductsIntoRealm = () => {
   try {

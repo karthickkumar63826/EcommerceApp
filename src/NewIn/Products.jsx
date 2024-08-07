@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
-import productsData from '../assets/products.json';
+import {ProductContext} from '../context/ProductContext';
 
 const Product = ({item}) => {
+
   return (
     <View style={styles.innerContainer}>
       <View style={styles.imageContainer}>
@@ -28,10 +29,13 @@ const Product = ({item}) => {
 };
 
 const Products = () => {
+
+  const {products} = useContext(ProductContext);
+
   return (
     <FlatList
-      data={productsData}
-      keyExtractor={(_, index) => index.toString()}
+      data={products}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={({item}) => <Product item={item} />}
       contentContainerStyle={styles.container}
       numColumns={2}
@@ -41,12 +45,12 @@ const Products = () => {
 };
 
 const styles = StyleSheet.create({
-  container:{
-    margin:30,
-    marginTop:40,
+  container: {
+    margin: 30,
+    marginTop: 40,
   },
   columnWrapper: {
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
   },
   innerContainer: {
     width: 140,
@@ -54,9 +58,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     padding: 20,
-    paddingLeft:6,
-    marginBottom: 28, 
-    gap:10,
+    paddingLeft: 6,
+    marginBottom: 28,
+    gap: 10,
   },
   imageContainer: {
     position: 'relative',
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
   image: {
     width: 115,
     height: 115,
-    resizeMode: "stretch", 
+    resizeMode: 'stretch',
     borderRadius: 60,
   },
   addToCart: {

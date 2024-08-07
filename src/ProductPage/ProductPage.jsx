@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Header from '../Header';
 import {
   StyleSheet,
@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SizeBtn from './SizeBtn';
-import productsData from '../assets/products.json';
+import {ProductContext} from '../context/ProductContext';
 
 const ProductPage = ({route}) => {
   const {id} = route.params;
@@ -19,8 +19,10 @@ const ProductPage = ({route}) => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const {products} = useContext(ProductContext);
+
   useEffect(() => {
-    const product = productsData.find(p => p.id === id);
+    const product = products.find(p => p.id === id);
     setItem(product);
     setTimeout(() => {
       setLoading(false);
@@ -37,7 +39,7 @@ const ProductPage = ({route}) => {
 
   return (
     <View style={styles.conatiner}>
-      <Header title={"Products"}/>
+      <Header title={'Products'} />
 
       <ScrollView style={styles.innerContainer}>
         <View style={styles.imageContainer}>

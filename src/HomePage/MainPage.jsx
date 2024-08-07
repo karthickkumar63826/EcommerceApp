@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, View, Text, FlatList, Pressable} from 'react-native';
-import productsData from '../assets/products.json';
 import ProductCard from './ProductCard';
 import {useNavigation} from '@react-navigation/native';
+import {ProductContext} from '../context/ProductContext';
 
 const MainPage = () => {
   const navigation = useNavigation();
+
+  const {products} = useContext(ProductContext);
+
+  if (products.length === 0) {
+    return <Text>No products available</Text>;
+  }
 
   return (
     <View style={styles.container}>
@@ -16,9 +22,9 @@ const MainPage = () => {
         </Pressable>
       </View>
       <FlatList
-        data={productsData}
+        data={products}
         renderItem={({item}) => <ProductCard product={item} />}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={item => item.id.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.flatListContainer}
