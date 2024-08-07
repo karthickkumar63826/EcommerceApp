@@ -1,11 +1,12 @@
 [
     {   
         "id":1,
-        "img" : "data:image/jpeg;base64,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",
+        "img" : "https://media-uk.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000012870891-Blue-TURQUOISE-1000012870891_01-2100.jpg",
         "price" : "$60.00",
         "title" : "Hoodie Bleu clei",
-        "subImg1": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiuuUAuIR58yjIEhDFl9dEIGfUnIBzevt-ryKvu-dg0DG6LeY0",
-        "subImg2": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiuuUAuIR58yjIEhDFl9dEIGfUnIBzevt-ryKvu-dg0DG6LeY0"
+        "subImg1": "https://media-uk.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000012870891-Blue-TURQUOISE-1000012870891_02-2100.jpg",
+        "subImg2": "https://media-uk.landmarkshops.in/cdn-cgi/image/h=1200,w=1200,q=85,fit=cover/max-new/1000012870891-Blue-TURQUOISE-1000012870891_07-2100.jpg",
+        "category": "man"
     },
     {   
         "id":2,
@@ -13,7 +14,9 @@
         "price":"$46.32",
         "title": "Full Colore Hoodie",
         "subImg1":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR1PZfxRmXFrnkulZWenw4n4qZaFewniNvcQ-O_LFUH1BZ3lMkM",
-        "subImg2":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSpmM6gr2LNru0_MBqeZ3b_kOuomWPwX6TUwAFKcgVaDPsORLJB"
+        "subImg2":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSpmM6gr2LNru0_MBqeZ3b_kOuomWPwX6TUwAFKcgVaDPsORLJB",
+        "category": "man"
+
     },
     {   
         "id":3,
@@ -21,7 +24,9 @@
         "price":"$44.99",
         "title": "Vision Naire Lavande",
         "subImg1": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQH_0nPJSDJF3mM_FnUGnq7F8Kr8Va7DR8MCXX43ouydJSRd26S",
-        "subImg2":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQdLco9jpvW3HxX0koNNrrrUdMxsk9mnDI0EojOa2WTJ5jrXcjo"
+        "subImg2":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQdLco9jpvW3HxX0koNNrrrUdMxsk9mnDI0EojOa2WTJ5jrXcjo",
+        "category": "man"
+
     }
     ,
     {   
@@ -30,7 +35,9 @@
         "price":"$55.99",
         "title": "CrewNeck Sweatshirt",
         "subImg1":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ11zXliEa-Fi6V33p3ULK-XqmME_o3UUAwwitfWjisKZSiwPpI",
-        "subImg2":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT6j9I3jB14LtYyD06RZs6Mh9xG8ESJGLXSBP3xCCLsJxKhFkci"
+        "subImg2":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT6j9I3jB14LtYyD06RZs6Mh9xG8ESJGLXSBP3xCCLsJxKhFkci",
+        "category": "man"
+
     }
     ,
     {   
@@ -39,7 +46,9 @@
         "price":"$25.69",
         "title": "Deniem Wallet",
         "subImg1":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT0HeuUX4YuMrJoTLTknNxtuOlLaHbQJ5TnK4SJisCgwmhPAIfk",
-        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwX-Nko9hJ53XakFYNWYdIhvqBCNxuUghVc8_Mu4-J8ue5baEQ"
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwX-Nko9hJ53XakFYNWYdIhvqBCNxuUghVc8_Mu4-J8ue5baEQ",
+        "category": "man"
+
     }
     ,
     {   
@@ -48,7 +57,9 @@
         "price":"$22.99",
         "title": "Casual Shirt",
         "subImg1":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTgC2woIZ5-iHXPs6yB7zJRAzFaBoVQP06Xv0BwvRiTAKSt8DGX",
-        "subImg2":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSqizgLyrzHoOPzgoA_wC_Smak1RtPiFSU1CyK0i65Vir6ErZka"
+        "subImg2":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSqizgLyrzHoOPzgoA_wC_Smak1RtPiFSU1CyK0i65Vir6ErZka",
+        "category": "man"
+
     }
     ,
     {   
@@ -57,7 +68,9 @@
         "price":"$19.99",
         "title": "Gym Wears",
         "subImg1":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9b-rdVL_eH_5G9aWeazgSLu6pyBr4cx4o7WIzW6zRuyCVTQsB",
-        "subImg2":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSGDv-ATe20V8gqWKSM3MoeYSnp_Gz0Rd1TFfodgFTIMv18TBEK"
+        "subImg2":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSGDv-ATe20V8gqWKSM3MoeYSnp_Gz0Rd1TFfodgFTIMv18TBEK",
+        "category": "man"
+
     }
     ,
     {   
@@ -66,6 +79,296 @@
         "price":"$17.89",
         "title": "Slimfit Tshirt",
         "subImg1":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQDMRhkaCBJZlkD_UrIsP04Pv2Fr91YJHR7mJ3nEKgYGBcDxSOs",
-        "subImg2":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ87QbucSnOYOlQAS80QRLf9tqwaT8uN8SepAmVECeqCfmlBrG-"
+        "subImg2":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ87QbucSnOYOlQAS80QRLf9tqwaT8uN8SepAmVECeqCfmlBrG-",
+        "category": "man"
+    },
+    {
+        "id":9,
+        "img":"https://img.freepik.com/free-photo/kids-fashion-style-childrens-wear-accessories-concept-serious-confident-african-american-boy-modeling-against-blank-wall-wearing-striped-jumper-pink-shades-his-head_343059-4497.jpg",
+        "price":"$22.25",
+        "title":"Shutter",
+        "subImg1":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm0TinYyfqYkY2qm9kZlY2siu148hjoHaV9EmK0KkvvOWvNfIo74nUiFEfXVW5zeBNAGo&usqp=CAU",
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1fRixSvBSrztKPUsP3aCclXRO7KaF3_7qoiMS1qIi8uR1x8-uXWUaDF7E1I2bYMxuGqQ&usqp=CAU",
+        "category":"kids"
+    },
+    {
+        "id":10,
+        "img":"https://www.shutterstock.com/image-photo/portrait-asian-school-boy-born-260nw-2278037045.jpg",
+        "price":"$20.25",
+        "title":"Yellow sweatshirt",
+        "subImg1":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9h64C63wvkBgNDW5UHoS16S4h-A6a8b7izm9jxHAP-Vvfihh55H2pZm6HIT2PbLOwXbo&usqp=CAU",
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckffwj3AXerI8UwAzrcMqGPONWrJCVV_3XoxO3Y_isxLh-PHv0mv2EuhqGV2BenvMhsg&usqp=CAU",
+        "category":"kids"
+    },
+    {
+        "id":11,
+        "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK_Dj_YmS-BP5abO4Y4dqKfoME7spgHswi46yRPIV0LzrWYkJGUwhFZKLA-_zcExHt2Yc&usqp=CAU",
+        "price":"$30.00",
+        "title":"Royal Coat",
+        "subImg1":"https://media.istockphoto.com/id/1295801745/photo/cute-little-girl-with-hands-by-mouth-shouting-on-pink-background.jpg?s=612x612&w=0&k=20&c=L-M5aufB4Q2pRpk7CABNaoVlMzZmBUatbXfgsrS1BNk=",
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBtRrpR2oOlEG7SGR4EJSEbEZd9ZrTKhty8oM_pwEEgKkTeryt1Yw8qSgohk6Qd2z--hQ&usqp=CAU",
+        "category":"kids"
+    },
+    {
+        "id":12,
+        "img":"https://img.freepik.com/free-photo/portrait-cute-little-kid-boy-stylish-jeans-clothes-looking-camera-against-white-studio-wall-kids-fashion-concept_155003-17313.jpg",
+        "price":"$40.50",
+        "title":"Trendy Jean Shirt",
+        "subImg1":"https://img.freepik.com/free-photo/full-length-portrait-cute-little-kid-boy-stylish-jeans-clothes-smiling-standing-white-kids-fashion-concept_155003-20308.jpg?size=626&ext=jpg",
+        "subImg2":"https://img.freepik.com/free-photo/portrait-cute-little-kid-boy-stylish-jeans-clothes-looking-camera-against-white-studio-wall-kids-fashion-concept_155003-21550.jpg?size=626&ext=jpg",
+        "category":"kids"
+    },
+    {
+        "id":13,
+        "img":"https://cdn.pixabay.com/photo/2017/12/13/09/23/model-3016382_960_720.jpg",
+        "price":"$19.99",
+        "title":"Tshirt ",
+        "subImg1":"https://cdn.pixabay.com/photo/2017/12/13/09/23/model-3016384_1280.jpg",
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Grpkib8aTCV0roNR-OOo3T8ystr04VfutzhHwA15Xmhwh6LMyNCk9nAJS4__JL9xzNk&usqp=CAU",
+        "category":"kids"
+    },
+    {
+        "id":14,
+        "img":"https://media.istockphoto.com/id/1296361252/photo/child-boy-modern-stock-photo.webp?b=1&s=170667a&w=0&k=20&c=bwsm2iEpXV12l4Js9K8Xa-tKdNRms2u8obdE1mbMriA=",
+        "price":"$10.99",
+        "title":"Shorts",
+        "subImg1":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H8jCS1OR0QWQQc6pDAR2N7XBsk_1h_-3CZLp8Yd8Xbz-JZopnOkySVGHAxD5sC1oKVo&usqp=CAU",
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1BJlf2ajftK9rfujOULFcxBcx5WH5Akiis70QyydZtZX2k14EogLH7vsX5Ksi7rAtCyg&usqp=CAU",
+        "category":"kids"
+    },
+    {
+        "id":15,
+        "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2nHCyNctz3mrhoUBXiK0L9IHcWGO5T-2sIQ&s",
+        "price":"$30.99",
+        "title":"Overcoat shirt",
+        "subImg1":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVTbz5puEhNT5-LC-smWIa0HznuL3yYzI2sgo7EKFGQzgG1wjtxVWADRYLEgupYdazJ7k&usqp=CAU",
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVDqac8IOkwYiVcJpaGhytCulLTA-aBMwdp7leR0TyYFIBNjckpO2XkLt58LgxQ21TlP4&usqp=CAU",
+        "category":"kids"
+    },
+    {
+        "id":16,
+        "img":"https://c8.alamy.com/comp/E741BB/handsome-kid-model-in-white-tshirt-standing-front-view-isolated-E741BB.jpg",
+        "price":"$9.99",
+        "title":"White Tshirt",
+        "subImg1":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKGDl-qzAIzka3mtRcK_LYA6mkhAnJZ6xRKMpi5Da2pItGDnVm-2YeqddA-7FiRmz83XU&usqp=CAU",
+        "subImg2":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Vn3N3FixsY3gtZj7euW8ehiWQIBHBgChjLRKhfUF4oSeFDxbB2A_e3xvmLD7vStRiEw&usqp=CAU",
+        "category":"kids"
+    },
+    {
+        "id":17,
+        "img":"https://m.media-amazon.com/images/I/71B+fOKs6aL._AC_UL480_FMwebp_QL65_.jpg",
+        "price":"$49.99",
+        "title":"Pets wipper",
+        "subImg1":"https://m.media-amazon.com/images/I/61lryTrEfpL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61lryTrEfpL._SL1500_.jpg",
+        "category":"pets"
+    },
+    {
+        "id":18,
+        "img":"https://m.media-amazon.com/images/I/71Ht1USGwiL._SL1500_.jpg",
+        "price":"$25.55",
+        "title":"Canine Dog food",
+        "subImg1":"https://m.media-amazon.com/images/I/81Db1lTo0eL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/81+aIUYFDCL._SL1500_.jpg",
+        "category":"pets"
+    },
+    {
+        "id":19,
+        "img":"https://m.media-amazon.com/images/I/61H8OTYT9pL._SL1500_.jpg",
+        "price":"$19.99",
+        "title":"Drools dogs food",
+        "subImg1":"https://m.media-amazon.com/images/I/71pNMSz1-nL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71Qhj+YHvkL._SL1500_.jpg",
+        "category":"pets"
+    },
+
+    {
+        "id":20,
+        "img":"https://m.media-amazon.com/images/I/61qQ7YrGgdL._SL1080_.jpg",
+        "price":"$49.99",
+        "title":"Cat bag",
+        "subImg1":"https://m.media-amazon.com/images/I/61GypOGmRyL._SL1080_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71VVpHR2LcL._SL1080_.jpg",
+        "category":"pets"
+    },
+    {
+        "id":21,
+        "img":"https://m.media-amazon.com/images/I/71TrWl9iuaL._SL1500_.jpg",
+        "price":"$49.99",
+        "title":"Foam Premium bed",
+        "subImg1":"https://m.media-amazon.com/images/I/71e5Sb3VxQL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/A1sWxrP4-NL._SL1500_.jpg",
+        "category":"pets"
+    },
+    {
+        "id":22,
+        "img":"https://m.media-amazon.com/images/I/61Onx1N7skL._SL1500_.jpg",
+        "price":"$49.99",
+        "title":"Credly bowl",
+        "subImg1":"https://m.media-amazon.com/images/I/61Onx1N7skL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61ViV0pkLJL._SL1500_.jpg",
+        "category":"pets"
+    },
+    {
+        "id":23,
+        "img":"https://m.media-amazon.com/images/I/61N6d7o6LiL._SL1500_.jpg",
+        "price":"$25.99",
+        "title":"Drools dog food",
+        "subImg1":"https://m.media-amazon.com/images/I/71yyxkTWcpL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71qXZCESBiS._SL1500_.jpg",
+        "category":"pets"
+    },
+    {
+        "id":24,
+        "img":"https://m.media-amazon.com/images/I/716hW2Ay4WL._SL1500_.jpg",
+        "price":"$19.99",
+        "title":"Drools treat",
+        "subImg1":"https://m.media-amazon.com/images/I/71ctxf0Vn+L._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71ctxf0Vn+L._SL1500_.jpg",
+        "category":"pets"
+    },
+    {
+        "id":25,
+        "img":"https://m.media-amazon.com/images/I/71t9JRry+3L._SL1500_.jpg",
+        "price":"$10.99",
+        "title":"Cetaphile",
+        "subImg1":"https://m.media-amazon.com/images/I/71t9JRry+3L._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71t9JRry+3L._SL1500_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":26,
+        "img":"https://m.media-amazon.com/images/I/41v1L8K+11L._SL1080_.jpg",
+        "price":"$11.99",
+        "title":"Derma Co",
+        "subImg1":"https://m.media-amazon.com/images/I/41v1L8K+11L._SL1080_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/51m-P4d8wgL._SL1080_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":27,
+        "img":"https://m.media-amazon.com/images/I/41qlsXZQA0L._SL1200_.jpg",
+        "price":"$9.99",
+        "title":"Neutogena cream",
+        "subImg1":"https://m.media-amazon.com/images/I/41qlsXZQA0L._SL1200_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/41qlsXZQA0L._SL1200_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":28,
+        "img":"https://m.media-amazon.com/images/I/51BRMqAlHEL._SL1500_.jpg",
+        "price":"$9.99",
+        "title":"DOT & Key cream",
+        "subImg1":"https://m.media-amazon.com/images/I/51BRMqAlHEL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/51BRMqAlHEL._SL1500_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":29,
+        "img":"https://m.media-amazon.com/images/I/61W6HQfb69L._SL1500_.jpg",
+        "price":"$19.99",
+        "title":"Minimalist Gentle Face Wash",
+        "subImg1":"https://m.media-amazon.com/images/I/61uKI4Qv+mL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61uKI4Qv+mL._SL1500_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":30,
+        "img":"https://m.media-amazon.com/images/I/31pA5gq0bSL._SX300_SY300_QL70_FMwebp_.jpg",
+        "price":"$24.44",
+        "title":"Minimalist 2% Salicylic Acid Serum",
+        "subImg1":"https://m.media-amazon.com/images/I/71b51qzkaIL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71GZty2UhZL._SL1500_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":31,
+        "img":"https://m.media-amazon.com/images/I/414cyp-HKUL._SX300_SY300_QL70_FMwebp_.jpg",
+        "price":"$14.44",
+        "title":"Himalaya Dark Spot Clearing",
+        "subImg1":"https://m.media-amazon.com/images/I/81jI+G8pOTL._SL1500_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61QIZcwu5IL._SL1200_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":32,
+        "img":"https://m.media-amazon.com/images/I/41aQIJHEokL._SX300_SY300_QL70_FMwebp_.jpg",
+        "price":"$19.99",
+        "title":"Fixderma 20% Niacinamide",
+        "subImg1":"https://m.media-amazon.com/images/I/61jrt8MzguL._SL1200_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/51cq3Gk0w8L._SL1200_.jpg",
+        "category":"beauty"
+    },
+    {
+        "id":33,
+        "img":"https://m.media-amazon.com/images/I/41-WXyLST0L.jpg",
+        "price":"$40.99",
+        "title":"Bacca Bucci",
+        "subImg1":"https://m.media-amazon.com/images/I/41-WXyLST0L.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71tzBBW3yyL._SY675_.jpg",
+        "category":"shoes"
+    },
+    {
+        "id":34,
+        "img":"https://m.media-amazon.com/images/I/61dKCBfKtSL._SY675_.jpg",
+        "price":"$39.99",
+        "title":"Bacca Bucci Running shoe",
+        "subImg1":"https://m.media-amazon.com/images/I/61ZSYFjfsBL._SX675_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61ZSYFjfsBL._SX675_.jpg",
+        "category":"shoes"
+    },
+    {
+        "id":35,
+        "img":"https://m.media-amazon.com/images/I/61kt5gXpa3L._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
+        "price":"$29.99",
+        "title":"BoldFit cricket shoes",
+        "subImg1":"https://m.media-amazon.com/images/I/61nNPc9rJwL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61nNPc9rJwL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
+        "category":"shoes"
+    },
+    {
+        "id":36,
+        "img":"https://m.media-amazon.com/images/I/616AuvSa3LL._SY695_.jpg",
+        "price":"$44.99",
+        "title":"ayasa Comfotable Lightweight",
+        "subImg1":"https://m.media-amazon.com/images/I/61ycM6DjFeL._SY695_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61qFkHtfzlL._SY695_.jpg",
+        "category":"shoes"
+    },
+    {
+        "id":37,
+        "img":"https://m.media-amazon.com/images/I/71GQ5PxmBlL._SY695_.jpg",
+        "price":"$34.44",
+        "title":"KNOOS Synthetic Leather Lace",
+        "subImg1":"https://m.media-amazon.com/images/I/61qFkHtfzlL._SY695_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61qFkHtfzlL._SY695_.jpg",
+        "category":"shoes"
+    },
+    {
+        "id":38,
+        "img":"https://m.media-amazon.com/images/I/71881dCDowL._SY695_.jpg",
+        "price":"$45.55",
+        "title":"SOLETHREADS Cliff",
+        "subImg1":"https://m.media-amazon.com/images/I/71HG8OuRNkL._SY675_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/71R96ZvweXL._SY675_.jpg",
+        "category":"shoes"
+    },
+    {
+        "id":39,
+        "img":"https://m.media-amazon.com/images/I/612PuEQ-8RS._SY695_.jpg",
+        "price":"$56.99",
+        "title":"Vendoz shoes",
+        "subImg1":"https://m.media-amazon.com/images/I/61l9T5GSKrS._SY675_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61l9T5GSKrS._SY675_.jpg",
+        "category":"shoes"
+    },
+    {
+        "id":40,
+        "img":"https://m.media-amazon.com/images/I/61Sxv6rEwmL._SY695_.jpg",
+        "price":"$44.55",
+        "title":"YOHO Chunky Sneakers",
+        "subImg1":"https://m.media-amazon.com/images/I/71auHwK3itL._SY675_.jpg",
+        "subImg2":"https://m.media-amazon.com/images/I/61exa4aUSFL._SY675_.jpg",
+        "category":"shoes"
     }
 ]

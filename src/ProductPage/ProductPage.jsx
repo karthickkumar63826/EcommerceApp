@@ -65,7 +65,7 @@ const ProductPage = ({route}) => {
         </View>
         <View style={styles.Details}>
           <View style={styles.mainDetails}>
-            <View style={{width: 150}}>
+            <View style={{width: 210}}>
               <Text style={styles.title}>{item.title}</Text>
             </View>
             <Text style={styles.price}>{item.price}</Text>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   image: {
     width: 280,
     height: 280,
-    objectFit: 'fill',
+    objectFit: 'cover',
     borderRadius: 150,
     marginLeft: 40,
   },
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     bottom: 60,
     right: 65,
     borderRadius: 25,
-    objectFit: 'fill',
+    objectFit: 'contain',
   },
 
   iconContainer: {
@@ -182,10 +182,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   description: {
-    fontSize: 17,
+    fontSize: 16,
     color: '#555',
     textAlign: 'left',
-    lineHeight: 30,
+    lineHeight: 26,
+    fontWeight: '400'
   },
   btnContainer: {
     height: 100,

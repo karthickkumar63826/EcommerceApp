@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
   details: {
     flexDirection: 'column',
     gap: 3,
+    width:128,
   },
   addBtn: {
     width: 43,
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     height: 34,
     position: 'absolute',
     right: 34,
-    bottom: 25,
+    bottom: 29,
     borderRadius: 20,
     objectFit: 'fill',
   },
