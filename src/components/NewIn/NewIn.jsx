@@ -1,25 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import CategoryScroll from './CategoryScroll';
-import MainPage from './MainPage';
-import SearchBar from './SearchBar';
+import {StyleSheet, View, Text} from 'react-native';
 import Header from '../Header';
+import Products from './Products';
 
-const HomePage = () => {
+const NewIn = () => {
   return (
     <View style={styles.container}>
-      <Header title={'Collections'}/>
+      <Header title={'New In'} />
       <View style={styles.mainHeader}>
-        <Text style={styles.mainHeaderText}>Collections</Text>
+        <Text style={styles.mainHeaderText}>New In</Text>
         <View style={styles.roundContainer}>
           <View style={styles.round}></View>
           <View style={styles.round}></View>
           <View style={styles.round}></View>
         </View>
       </View>
-      <CategoryScroll />
-      <MainPage />
-      <SearchBar />
+      <Products />
     </View>
   );
 };
@@ -27,9 +23,8 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
   },
-
-
   mainHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -41,7 +36,7 @@ const styles = StyleSheet.create({
   mainHeaderText: {
     fontSize: 40,
     color: '#010824',
-    fontWeight: '600',
+    fontWeight: '500',
   },
   round: {
     width: 6,
@@ -57,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomePage;
+export default NewIn;

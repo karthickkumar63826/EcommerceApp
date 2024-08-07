@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SizeBtn from './SizeBtn';
-import {ProductContext} from '../context/ProductContext';
+import {ProductContext} from '../../context/ProductContext';
 
 const ProductPage = ({route}) => {
   const {id} = route.params;

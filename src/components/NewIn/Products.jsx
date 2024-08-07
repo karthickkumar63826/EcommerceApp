@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
-import {ProductContext} from '../context/ProductContext';
+import {ProductContext} from '../../context/ProductContext';
 
 const Product = ({item}) => {
-
   return (
     <View style={styles.innerContainer}>
       <View style={styles.imageContainer}>
@@ -15,7 +14,7 @@ const Product = ({item}) => {
           style={styles.image}
         />
         <Image
-          source={require('../assets/addToCart.png')}
+          source={require('../../assets/addToCart.png')}
           style={styles.addToCart}
         />
       </View>
@@ -29,13 +28,12 @@ const Product = ({item}) => {
 };
 
 const Products = () => {
-
   const {products} = useContext(ProductContext);
 
   return (
     <FlatList
       data={products}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={item => item.id.toString()}
       renderItem={({item}) => <Product item={item} />}
       contentContainerStyle={styles.container}
       numColumns={2}

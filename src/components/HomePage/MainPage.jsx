@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {StyleSheet, View, Text, FlatList, Pressable} from 'react-native';
 import ProductCard from './ProductCard';
 import {useNavigation} from '@react-navigation/native';
-import {ProductContext} from '../context/ProductContext';
+import {ProductContext} from '../../context/ProductContext';
 
 const MainPage = () => {
   const navigation = useNavigation();

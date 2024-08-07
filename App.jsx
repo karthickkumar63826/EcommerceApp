@@ -2,10 +2,10 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import HomePage from './src/HomePage/HomePage';
-import ProductPage from './src/ProductPage/ProductPage';
-import NewIn from './src/NewIn/NewIn';
-import FirstPage from './src/MainFolder/FirstPage';
+import HomePage from './src/components/HomePage/HomePage';
+import ProductPage from './src/components/ProductPage/ProductPage';
+import NewIn from './src/components/NewIn/NewIn';
+import FirstPage from './src/components/MainFolder/FirstPage';
 
 const Stack = createStackNavigator();
 
