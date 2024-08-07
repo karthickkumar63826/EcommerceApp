@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SizeBtn from './SizeBtn';
-import {ProductContext} from '../../context/ProductContext';
+import { useSelector } from 'react-redux';
 
 const ProductPage = ({route}) => {
   const {id} = route.params;
@@ -19,7 +19,7 @@ const ProductPage = ({route}) => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const {products} = useContext(ProductContext);
+  const products = useSelector((state) => state.products);
 
   useEffect(() => {
     const product = products.find(p => p.id === id);

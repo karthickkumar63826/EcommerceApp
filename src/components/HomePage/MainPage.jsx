@@ -2,16 +2,19 @@ import React, {useContext} from 'react';
 import {StyleSheet, View, Text, FlatList, Pressable} from 'react-native';
 import ProductCard from './ProductCard';
 import {useNavigation} from '@react-navigation/native';
-import {ProductContext} from '../../context/ProductContext';
+import {useSelector} from 'react-redux';
 
 const MainPage = () => {
   const navigation = useNavigation();
 
-  const {products} = useContext(ProductContext);
+  const products = useSelector(state => state.products);
+  const selectedCategory = useSelector(state => state.selectedCategory);
 
-  if (products.length === 0) {
-    return <Text>No products available</Text>;
-  }
+  const filteredProducts = products.filter(
+    product =>
+      product.category.toLowerCase() === selectedCategory.toLowerCase(),
+  );
+  console.log(filteredProducts);
 
   return (
     <View style={styles.container}>
@@ -22,7 +25,7 @@ const MainPage = () => {
         </Pressable>
       </View>
       <FlatList
-        data={products}
+        data={filteredProducts}
         renderItem={({item}) => <ProductCard product={item} />}
         keyExtractor={item => item.id.toString()}
         horizontal

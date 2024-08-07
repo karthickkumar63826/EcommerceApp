@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   View,
@@ -8,9 +8,17 @@ import {
   ImageBackground,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import { loadProductsIntoRealm } from '../../redux/actions/productAction';
+
 
 const FirstPage = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadProductsIntoRealm());
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>
@@ -42,7 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    
   },
   mainBtns: {
     marginBottom: 100,

@@ -7,6 +7,8 @@ import {
   ScrollView,
   Pressable,
 } from 'react-native';
+import {useDispatch} from 'react-redux';
+import {setSelectedCategory} from '../../redux/actions/productAction';
 
 const CategoryScroll = () => {
   const Categories = [
@@ -34,6 +36,13 @@ const CategoryScroll = () => {
 
   const [selected, setSelected] = useState(0);
 
+  const dispatch = useDispatch();
+
+  const handleCategorySelect = (category, index) => {
+    setSelected(index);
+    dispatch(setSelectedCategory(category));
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -44,7 +53,7 @@ const CategoryScroll = () => {
           <Pressable
             style={styles.categoryImageContainer}
             key={index}
-            onPress={() => setSelected(index)}>
+            onPress={() => handleCategorySelect(category.title, index)}>
             <Image
               source={{
                 uri: category.img,
@@ -88,7 +97,7 @@ const styles = StyleSheet.create({
     height: 5,
     borderRadius: 25,
     backgroundColor: '#3d0381',
-    marginTop:-10,
+    marginTop: -10,
   },
 });
 

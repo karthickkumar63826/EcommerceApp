@@ -27,11 +27,7 @@ const Header = ({title}) => {
           </View>
         </View>
       </View>
-      <View>
-        <Pressable>
-          <Text>Add to Cart</Text>
-        </Pressable>
-      </View>
+   
     </View>
   );
 };
@@ -43,7 +39,7 @@ const styles = StyleSheet.create({
     alignContent: 'flex-end',
     justifyContent: 'space-between',
     padding: 20,
-    paddingBottom: 1,
+    paddingBottom: 10,
   },
 
   headerText: {

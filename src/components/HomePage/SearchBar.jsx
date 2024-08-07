@@ -9,7 +9,7 @@ const SearchBar = () => {
 
   return (
     <View style={styles.container}>
-      <Pressable style={styles.searchBox} >
+      <Pressable style={styles.searchBox} onPress={() => navigation.navigate('Search')}>
         <Icon name="search" size={25} style={styles.searchIcon} />
       </Pressable>
       <Text style={styles.text}>Find Something</Text>

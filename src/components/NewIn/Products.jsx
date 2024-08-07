@@ -1,18 +1,29 @@
-import React, {useContext} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
-import {FlatList, ScrollView} from 'react-native-gesture-handler';
-import {ProductContext} from '../../context/ProductContext';
+import {FlatList, Pressable} from 'react-native-gesture-handler';
+import {useSelector} from 'react-redux';
 
 const Product = ({item}) => {
+  const navigation = useNavigation();
+
+  handleProductPage = id => {
+    navigation.navigate('Product', {id: id});
+  };
+
   return (
     <View style={styles.innerContainer}>
       <View style={styles.imageContainer}>
-        <Image
-          source={{
-            uri: item.img,
-          }}
-          style={styles.image}
-        />
+        <Pressable
+          style={styles.press}
+          onPress={() => handleProductPage(item.id)}>
+          <Image
+            style={styles.image}
+            source={{
+              uri: item.img,
+            }}
+          />
+        </Pressable>
         <Image
           source={require('../../assets/addToCart.png')}
           style={styles.addToCart}
@@ -28,7 +39,7 @@ const Product = ({item}) => {
 };
 
 const Products = () => {
-  const {products} = useContext(ProductContext);
+  const products = useSelector(state => state.products);
 
   return (
     <FlatList
@@ -62,6 +73,12 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: 'relative',
+  },
+  press: {
+    width: 115,
+    height: 115,
+    resizeMode: 'stretch',
+    borderRadius: 60,
   },
   image: {
     width: 115,

@@ -6,6 +6,7 @@ import HomePage from './src/components/HomePage/HomePage';
 import ProductPage from './src/components/ProductPage/ProductPage';
 import NewIn from './src/components/NewIn/NewIn';
 import FirstPage from './src/components/MainFolder/FirstPage';
+import SearchPage from './src/components/SearchPage/SearchPage';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ const App = () => {
         <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="Product" component={ProductPage} />
         <Stack.Screen name="NewIn" component={NewIn} />
+        <Stack.Screen name='Search' component={SearchPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
