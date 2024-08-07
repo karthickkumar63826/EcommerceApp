@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
 
-const Header = () => {
+const Header = ({title}) => {
   const navigation = useNavigation();
 
   return (
@@ -13,7 +13,7 @@ const Header = () => {
           <Icon name="arrow-back-ios" size={23} color={'#010824'} />
         </Pressable>
         <View>
-          <Text style={styles.headerText}>Products</Text>
+          <Text style={styles.headerText}>{title}</Text>
         </View>
         <View>
           <Icon

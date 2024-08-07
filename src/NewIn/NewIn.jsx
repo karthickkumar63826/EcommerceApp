@@ -1,12 +1,12 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import Header from './Header';
+import Header from '../Header';
 import Products from './Products';
 
 const NewIn = () => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header title={'New In'}/>
       <View style={styles.mainHeader}>
         <Text style={styles.mainHeaderText}>New In</Text>
         <View style={styles.roundContainer}>

@@ -1,14 +1,19 @@
 import React from 'react';
-import {StyleSheet, View, Text, FlatList} from 'react-native';
-import productsData from '../products.json';
+import {StyleSheet, View, Text, FlatList, Pressable} from 'react-native';
+import productsData from '../assets/products.json';
 import ProductCard from './ProductCard';
+import {useNavigation} from '@react-navigation/native';
 
 const MainPage = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <Text style={styles.topHeader}>New In</Text>
-        <Text style={styles.see}>See All</Text>
+        <Pressable onPress={() => navigation.navigate('NewIn')}>
+          <Text style={styles.see}>See All</Text>
+        </Pressable>
       </View>
       <FlatList
         data={productsData}

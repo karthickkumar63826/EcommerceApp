@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
-import productsData from '../products.json';
+import productsData from '../assets/products.json';
 
 const Product = ({item}) => {
   return (

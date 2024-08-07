@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Header from './Header';
+import Header from '../Header';
 import {
   StyleSheet,
   View,
@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SizeBtn from './SizeBtn';
-import productsData from '../products.json';
+import productsData from '../assets/products.json';
 
 const ProductPage = ({route}) => {
   const {id} = route.params;
@@ -37,7 +37,7 @@ const ProductPage = ({route}) => {
 
   return (
     <View style={styles.conatiner}>
-      <Header />
+      <Header title={"Products"}/>
 
       <ScrollView style={styles.innerContainer}>
         <View style={styles.imageContainer}>
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     color: '#555',
     textAlign: 'left',
     lineHeight: 26,
-    fontWeight: '400'
+    fontWeight: '400',
   },
   btnContainer: {
     height: 100,
