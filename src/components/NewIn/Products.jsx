@@ -2,16 +2,20 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import {FlatList, Pressable} from 'react-native-gesture-handler';
-import {useSelector} from 'react-redux';
-
+import {useDispatch, useSelector} from 'react-redux';
+import {addToCart} from '../../redux/actions/cartAction';
 
 const Product = ({item}) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
-  handleProductPage = id => {
+  const handleProductPage = id => {
     navigation.navigate('Product', {id: id});
   };
 
+  const handleAddToCart = () => {
+    dispatch(addToCart(item));
+  };
   return (
     <View style={styles.innerContainer}>
       <View style={styles.imageContainer}>
@@ -25,10 +29,9 @@ const Product = ({item}) => {
             }}
           />
         </Pressable>
-        <Image
-          source={require('../../assets/addToCart.png')}
-          style={styles.addToCart}
-        />
+        <Pressable style={styles.addToCart} onPress={handleAddToCart}>
+          <Image source={require('../../assets/addToCart.png')} />
+        </Pressable>
       </View>
 
       <View style={styles.details}>
@@ -40,7 +43,7 @@ const Product = ({item}) => {
 };
 
 const Products = () => {
-  const products = useSelector(state => state.products);
+  const products = useSelector(state => state.product.products);
 
   return (
     <FlatList

@@ -9,15 +9,21 @@ import {
   Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import Header from '../Header';
+import {addToCart} from '../../redux/actions/cartAction';
 
 const Product = ({item}) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
-  handleProductPage = id => {
+  const handleProductPage = id => {
     navigation.navigate('Product', {id: id});
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(item));
   };
 
   return (
@@ -33,10 +39,9 @@ const Product = ({item}) => {
             }}
           />
         </Pressable>
-        <Image
-          source={require('../../assets/addToCart.png')}
-          style={styles.addToCart}
-        />
+        <Pressable style={styles.addToCart} onPress={handleAddToCart}>
+          <Image source={require('../../assets/addToCart.png')} />
+        </Pressable>
       </View>
 
       <View style={styles.details}>
@@ -51,7 +56,7 @@ const SearchPage = () => {
   const [name, setName] = useState('');
   const [searchItem, setSearchItem] = useState([]);
 
-  const products = useSelector(state => state.products);
+  const products = useSelector(state => state.product.products);
 
   useEffect(() => {
     if (products) {

@@ -7,8 +7,9 @@ import {useSelector} from 'react-redux';
 const MainPage = () => {
   const navigation = useNavigation();
 
-  const products = useSelector(state => state.products);
-  const selectedCategory = useSelector(state => state.selectedCategory);
+  const products = useSelector(state => state.product.products);
+  console.log('printing the products ' + products);
+  const selectedCategory = useSelector(state => state.product.selectedCategory);
 
   const filteredProducts = products.filter(
     product =>

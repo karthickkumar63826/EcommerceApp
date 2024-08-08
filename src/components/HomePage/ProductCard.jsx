@@ -2,13 +2,20 @@ import React from 'react';
 import {Image, Pressable, StyleSheet, View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {addToCart} from '../../redux/actions/cartAction';
 
 const ProductCard = ({product}) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const handleProduct = id => {
     console.log(id);
     navigation.navigate('Product', {id: id});
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -34,7 +41,7 @@ const ProductCard = ({product}) => {
           <Text style={styles.price}>${product.price}</Text>
           <Text style={styles.title}>{product.title}</Text>
         </View>
-        <Pressable style={styles.addBtn}>
+        <Pressable style={styles.addBtn} onPress={() => handleAddToCart()}>
           <Text>
             <Icon name="add" size={20} color={'#163be8'} />
           </Text>
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
   details: {
     flexDirection: 'column',
     gap: 3,
-    width:128,
+    width: 128,
   },
   addBtn: {
     width: 43,

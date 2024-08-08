@@ -2,9 +2,12 @@ import React from 'react';
 import {View, Text, StyleSheet, Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 const Header = ({title}) => {
   const navigation = useNavigation();
+
+  const cart = useSelector(state => state.cart.items);
 
   return (
     <View style={styles.container}>
@@ -15,7 +18,7 @@ const Header = ({title}) => {
         <View>
           <Text style={styles.headerText}>{title}</Text>
         </View>
-        <Pressable onPress={() =>navigation.navigate('Cart')}>
+        <Pressable onPress={() => navigation.navigate('Cart')}>
           <Icon
             name="shopping-cart"
             size={27}
@@ -23,11 +26,10 @@ const Header = ({title}) => {
             style={styles.cart}
           />
           <View style={styles.cartNo}>
-            <Text style={styles.no}>2</Text>
+            <Text style={styles.no}>{cart.length}</Text>
           </View>
         </Pressable>
       </View>
-   
     </View>
   );
 };

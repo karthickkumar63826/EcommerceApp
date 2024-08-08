@@ -1,108 +1,71 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Header from '../Header';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  FlatList,
+  TouchableOpacity,
+} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Checkout from './Checkout';
+import {useDispatch, useSelector} from 'react-redux';
+
+const CartItem = ({item}) => {
+  const dispatch = useDispatch();
+
+  const handleIncrease = () => {
+    dispatch(increaseQuantity(item.product.id));
+  };
+
+  const handleDecrease = () => {
+    dispatch(decreaseQuantity(item.product.id));
+  };
+
+  return (
+    <View style={styles.cartItems}>
+      <View style={styles.item}>
+        <Image
+          source={{
+            uri: item.product.img,
+          }}
+          style={styles.image}
+        />
+        <View style={styles.details}>
+          <Text style={styles.title}>{item.product.title}</Text>
+          <Text style={styles.price}>${item.product.price}</Text>
+          <View style={styles.noOfItem}>
+            <TouchableOpacity style={styles.minus} onPress={handleDecrease}>
+              <Icon name="remove" size={15} color="black" />
+            </TouchableOpacity>
+            <Text style={styles.no}>1</Text>
+            <TouchableOpacity style={styles.plus} onPress={handleIncrease}>
+              <Icon name="add" size={15} color="white" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
 
 const CartPage = () => {
+  const cartItems = useSelector(state => state.cart.items);
+
   return (
     <View style={styles.container}>
       <Header title={'Checkout'} />
-      <ScrollView style={styles.innerContainer}>
-        <View style={styles.cartItems}>
-          <View style={styles.item}>
-            <Image
-              source={{
-                uri: 'https://media-uk.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000012870891-Blue-TURQUOISE-1000012870891_01-2100.jpg',
-              }}
-              style={styles.image}
-            />
-            <View style={styles.details}>
-              <Text style={styles.title}>Full Colore Hoodie</Text>
-              <Text style={styles.price}>$12.00</Text>
-              <View style={styles.noOfItem}>
-                <TouchableOpacity style={styles.minus}>
-                  <Icon name="remove" size={15} color="black" />
-                </TouchableOpacity>
-                <Text style={styles.no}>1</Text>
-                <TouchableOpacity style={styles.plus}>
-                  <Icon name="add" size={15} color="white" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
+      {cartItems.length === 0 ? (
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>Your cart is empty</Text>
         </View>
-        <View style={styles.cartItems}>
-          <View style={styles.item}>
-            <Image
-              source={{
-                uri: 'https://media-uk.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000012870891-Blue-TURQUOISE-1000012870891_01-2100.jpg',
-              }}
-              style={styles.image}
-            />
-            <View style={styles.details}>
-              <Text style={styles.title}>Full Colore Hoodie</Text>
-              <Text style={styles.price}>$12.00</Text>
-              <View style={styles.noOfItem}>
-                <TouchableOpacity style={styles.minus}>
-                  <Icon name="remove" size={15} color="black" />
-                </TouchableOpacity>
-                <Text style={styles.no}>1</Text>
-                <TouchableOpacity style={styles.plus}>
-                  <Icon name="add" size={15} color="white" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View style={styles.cartItems}>
-          <View style={styles.item}>
-            <Image
-              source={{
-                uri: 'https://media-uk.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000012870891-Blue-TURQUOISE-1000012870891_01-2100.jpg',
-              }}
-              style={styles.image}
-            />
-            <View style={styles.details}>
-              <Text style={styles.title}>Full Colore Hoodie</Text>
-              <Text style={styles.price}>$12.00</Text>
-              <View style={styles.noOfItem}>
-                <TouchableOpacity style={styles.minus}>
-                  <Icon name="remove" size={15} color="black" />
-                </TouchableOpacity>
-                <Text style={styles.no}>1</Text>
-                <TouchableOpacity style={styles.plus}>
-                  <Icon name="add" size={15} color="white" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View style={styles.cartItems}>
-          <View style={styles.item}>
-            <Image
-              source={{
-                uri: 'https://media-uk.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000012870891-Blue-TURQUOISE-1000012870891_01-2100.jpg',
-              }}
-              style={styles.image}
-            />
-            <View style={styles.details}>
-              <Text style={styles.title}>Full Colore Hoodie</Text>
-              <Text style={styles.price}>$12.00</Text>
-              <View style={styles.noOfItem}>
-                <TouchableOpacity style={styles.minus}>
-                  <Icon name="remove" size={15} color="black" />
-                </TouchableOpacity>
-                <Text style={styles.no}>1</Text>
-                <TouchableOpacity style={styles.plus}>
-                  <Icon name="add" size={15} color="white" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </View>
-      </ScrollView>
+      ) : (
+        <FlatList
+          data={cartItems}
+          renderItem={({item}) => <CartItem item={item} />}
+          keyExtractor={item => item.product.id.toString()}
+          style={styles.innerContainer}
+        />
+      )}
+
       <Checkout />
     </View>
   );
@@ -114,12 +77,20 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     padding: 30,
-
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyText: {
+    fontSize: 18,
+    color: '#888',
   },
   item: {
     flexDirection: 'row',
     gap: 15,
-    marginBottom:25,
+    marginBottom: 25,
   },
   image: {
     width: 130,

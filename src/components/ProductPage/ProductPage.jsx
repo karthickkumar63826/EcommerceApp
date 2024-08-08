@@ -11,15 +11,21 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SizeBtn from './SizeBtn';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {addToCart} from '../../redux/actions/cartAction';
 
 const ProductPage = ({route}) => {
   const {id} = route.params;
 
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
-  const products = useSelector((state) => state.products);
+  const products = useSelector(state => state.products);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(item));
+  };
 
   useEffect(() => {
     const product = products.find(p => p.id === id);
@@ -86,7 +92,7 @@ const ProductPage = ({route}) => {
       </ScrollView>
       <View style={styles.shadow} />
       <View style={styles.btnContainer}>
-        <Pressable style={styles.cartBtn}>
+        <Pressable style={styles.cartBtn} onPress={handleAddToCart}>
           <Text style={styles.btnText}>Add to Cart</Text>
         </Pressable>
       </View>

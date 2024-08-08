@@ -14,6 +14,13 @@ const ProductSchema = {
   primaryKey: 'id',
 };
 
-const realm = new Realm({schema: [ProductSchema]});
+const CartItemSchema = {
+  name: 'CartItem',
+  properties: {
+    product: 'Product',
+    quantity: 'int',
+  },
+};
+const realm = new Realm({schema: [ProductSchema, CartItemSchema]});
 
 export default realm;
