@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {StyleSheet, View, Text, FlatList, Pressable} from 'react-native';
 import ProductCard from './ProductCard';
 import {useNavigation} from '@react-navigation/native';
@@ -14,7 +14,6 @@ const MainPage = () => {
     product =>
       product.category.toLowerCase() === selectedCategory.toLowerCase(),
   );
-  console.log(filteredProducts);
 
   return (
     <View style={styles.container}>

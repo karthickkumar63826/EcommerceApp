@@ -4,6 +4,7 @@ import {StyleSheet, View, Text, Image} from 'react-native';
 import {FlatList, Pressable} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
 
+
 const Product = ({item}) => {
   const navigation = useNavigation();
 
@@ -31,7 +32,7 @@ const Product = ({item}) => {
       </View>
 
       <View style={styles.details}>
-        <Text style={styles.price}>{item.price}</Text>
+        <Text style={styles.price}>${item.price}</Text>
         <Text style={styles.title}>{item.title}</Text>
       </View>
     </View>

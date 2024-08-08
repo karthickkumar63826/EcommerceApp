@@ -70,7 +70,7 @@ const ProductPage = ({route}) => {
             <View style={{width: 210}}>
               <Text style={styles.title}>{item.title}</Text>
             </View>
-            <Text style={styles.price}>{item.price}</Text>
+            <Text style={styles.price}>${item.price}</Text>
           </View>
         </View>
         <SizeBtn />

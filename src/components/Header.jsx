@@ -15,7 +15,7 @@ const Header = ({title}) => {
         <View>
           <Text style={styles.headerText}>{title}</Text>
         </View>
-        <View>
+        <Pressable onPress={() =>navigation.navigate('Cart')}>
           <Icon
             name="shopping-cart"
             size={27}
@@ -25,7 +25,7 @@ const Header = ({title}) => {
           <View style={styles.cartNo}>
             <Text style={styles.no}>2</Text>
           </View>
-        </View>
+        </Pressable>
       </View>
    
     </View>

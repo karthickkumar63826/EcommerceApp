@@ -31,7 +31,7 @@ const ProductCard = ({product}) => {
       </Pressable>
       <View style={styles.innerContainer}>
         <View style={styles.details}>
-          <Text style={styles.price}>{product.price}</Text>
+          <Text style={styles.price}>${product.price}</Text>
           <Text style={styles.title}>{product.title}</Text>
         </View>
         <Pressable style={styles.addBtn}>
