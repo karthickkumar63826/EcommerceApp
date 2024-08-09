@@ -8,22 +8,32 @@ export const LOAD_CART_ITEMS = 'LOAD_CART_ITEMS';
 
 export const loadCartItems = () => {
   return dispatch => {
-    const cartItems = realm.objects('CartItem').map(item => ({
-      product: item.product,
-      quantity: item.quantity,
-    }));
+    const realmCartItems = realm.objects('CartItem');
+    const uniqueCartItems = Array.from(realmCartItems).reduce((acc, item) => {
+      const exists = acc.some(existingItem => existingItem.product.id === item.product.id);
+      if (!exists) acc.push({ product: item.product, quantity: item.quantity });
+      return acc;
+    }, []);
 
     dispatch({
       type: LOAD_CART_ITEMS,
-      payload: cartItems,
+      payload: uniqueCartItems,
     });
   };
 };
 
+
 export const addToCart = product => {
   return dispatch => {
     realm.write(() => {
-      realm.create('CartItem', {product, quantity: 1}, 'modified');
+      const existing = realm
+        .objects('CartItem')
+        .filtered(`product.id == ${product.id}`)[0];
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        realm.create('CartItem', {product, quantity: 1}, 'modified');
+      }
     });
     console.log('Item added to the cart');
 
@@ -68,7 +78,7 @@ export const increaseQuantity = productId => {
   };
 };
 
-export const removeQuantity = productId => {
+export const decreaseQuantity = productId => {
   return dispatch => {
     realm.write(() => {
       const cartItem = realm

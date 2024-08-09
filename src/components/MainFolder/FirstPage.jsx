@@ -2,21 +2,21 @@ import React, {useEffect} from 'react';
 import {
   StyleSheet,
   View,
-  Image,
+  ImageBackground,
   Text,
   Pressable,
-  ImageBackground,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
-import { loadProductsIntoRealm } from '../../redux/actions/productAction';
-
+import {loadProductsIntoRealm} from '../../redux/actions/productAction';
+import {loadCartItems} from '../../redux/actions/cartAction';
 
 const FirstPage = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(loadCartItems()); 
     dispatch(loadProductsIntoRealm());
   }, [dispatch]);
 
@@ -33,7 +33,7 @@ const FirstPage = () => {
             onPress={() => navigation.navigate('Home')}>
             <Text style={styles.homeBtnText}>Get Started</Text>
           </Pressable>
-          <Pressable style={styles.loginBtn}>
+          <Pressable style={styles.loginBtn} onPress={() => navigation.navigate('Login')}>
             <Text style={styles.loginBtnText}>Login</Text>
           </Pressable>
         </View>

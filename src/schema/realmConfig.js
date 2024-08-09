@@ -5,11 +5,12 @@ const ProductSchema = {
   properties: {
     id: 'int',
     img: 'string',
-    price: 'string',
+    price: 'float',
     title: 'string',
     subImg1: 'string',
     subImg2: 'string',
     category: 'string',
+    favorite: 'bool',
   },
   primaryKey: 'id',
 };
@@ -21,6 +22,23 @@ const CartItemSchema = {
     quantity: 'int',
   },
 };
-const realm = new Realm({schema: [ProductSchema, CartItemSchema]});
+
+const migration = (oldRealm, newRealm) => {
+  if (oldRealm.schemaVersion < 4) {
+    const oldObjects = oldRealm.objects('Product');
+    const newObjects = newRealm.objects('Product');
+
+    for (let i = 0; i < oldObjects.length; i++) {
+      newObjects[i].price = parseFloat(oldObjects[i].price);
+      newObjects[i].favorite = false;
+    }
+  }
+};
+
+const realm = new Realm({
+  schema: [ProductSchema, CartItemSchema],
+  schemaVersion: 4,
+  migration,
+});
 
 export default realm;

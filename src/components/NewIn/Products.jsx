@@ -16,8 +16,9 @@ const Product = ({item}) => {
   const handleAddToCart = () => {
     dispatch(addToCart(item));
   };
+
   return (
-    <View style={styles.innerContainer}>
+    <View style={styles.itemInnerContainer}>
       <View style={styles.imageContainer}>
         <Pressable
           style={styles.press}
@@ -66,6 +67,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   innerContainer: {
+    width: 140,
+    height: 180,
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 20,
+    paddingLeft: 6,
+    marginBottom: 28,
+    gap: 10,
+  },
+  itemInnerContainer: {
     width: 140,
     height: 180,
     flexDirection: 'column',

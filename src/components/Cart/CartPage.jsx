@@ -3,11 +3,17 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Header from '../Header';
 import {
   FlatList,
+  Pressable,
   TouchableOpacity,
 } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Checkout from './Checkout';
 import {useDispatch, useSelector} from 'react-redux';
+import {
+  increaseQuantity,
+  decreaseQuantity,
+  removeFromCart,
+} from '../../redux/actions/cartAction';
 
 const CartItem = ({item}) => {
   const dispatch = useDispatch();
@@ -18,6 +24,10 @@ const CartItem = ({item}) => {
 
   const handleDecrease = () => {
     dispatch(decreaseQuantity(item.product.id));
+  };
+
+  const handleRemove = () => {
+    dispatch(removeFromCart(item.product.id));
   };
 
   return (
@@ -36,11 +46,14 @@ const CartItem = ({item}) => {
             <TouchableOpacity style={styles.minus} onPress={handleDecrease}>
               <Icon name="remove" size={15} color="black" />
             </TouchableOpacity>
-            <Text style={styles.no}>1</Text>
+            <Text style={styles.no}>{item.quantity}</Text>
             <TouchableOpacity style={styles.plus} onPress={handleIncrease}>
               <Icon name="add" size={15} color="white" />
             </TouchableOpacity>
           </View>
+          <Pressable style={styles.remove} onPress={handleRemove}>
+            <Text style={styles.removeText}>Remove</Text>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -114,7 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   noOfItem: {
-    width: 85,
+    width: 'auto',
     flexDirection: 'row',
     gap: 10,
     padding: 5,
@@ -122,6 +135,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e2e2e2',
     borderRadius: 20,
+    justifyContent: 'space-between',
   },
   minus: {
     padding: 4,
@@ -135,6 +149,18 @@ const styles = StyleSheet.create({
     padding: 4,
     borderRadius: 50,
     backgroundColor: '#524eb7',
+  },
+  removeText: {
+    color: 'red',
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 6,
+  },
+  remove: {
+    borderWidth: 1,
+    borderColor: 'red',
+    height: 30,
+    borderRadius: 25,
   },
 });
 

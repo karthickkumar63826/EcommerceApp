@@ -21,7 +21,7 @@ const ProductPage = ({route}) => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
-  const products = useSelector(state => state.products);
+  const products = useSelector(state => state.product.products);
 
   const handleAddToCart = () => {
     dispatch(addToCart(item));

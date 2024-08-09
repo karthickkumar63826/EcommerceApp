@@ -5,8 +5,22 @@ import products from '../../assets/products.json';
 export const LOAD_PRODUCT_SUCCESS = 'LOAD_PRODUCT_SUCCESS';
 export const SET_SELECTED_CATEGORY = 'SET_SELECTED_CATEGORY';
 
+const areProductsLoaded = () => {
+  const realmProducts = realm.objects('Product');
+  return realmProducts.length > 0;
+};
+
 export const loadProductsIntoRealm = () => {
   return dispatch => {
+    const existingProducts = realm.objects('Product');
+
+    if (areProductsLoaded()) {
+      console.log(existingProducts);
+      console.log('Products already loaded in Realm.');
+      dispatch(loadProducts());
+      return;
+    }
+
     try {
       realm.write(() => {
         products.forEach(product => {

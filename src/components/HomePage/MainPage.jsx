@@ -8,7 +8,13 @@ const MainPage = () => {
   const navigation = useNavigation();
 
   const products = useSelector(state => state.product.products);
-  console.log('printing the products ' + products);
+
+  products.forEach(product => {
+    console.log(
+      `product id : ${product.id} contains product price : ${product.price}`,
+    );
+  });
+
   const selectedCategory = useSelector(state => state.product.selectedCategory);
 
   const filteredProducts = products.filter(
