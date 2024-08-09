@@ -1,6 +1,7 @@
 import {
   LOAD_PRODUCT_SUCCESS,
   SET_SELECTED_CATEGORY,
+  TOGGLE_FAVORITE,
 } from '../actions/productAction';
 
 const initialState = {
@@ -19,6 +20,16 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedCategory: action.payload,
+      };
+
+    case TOGGLE_FAVORITE:
+      return {
+        ...state,
+        products: state.products.map(product =>
+          product.id === action.payload
+            ? {...product, favorite: !product.favorite}
+            : product,
+        ),
       };
 
     default:

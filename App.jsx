@@ -8,6 +8,7 @@ import NewIn from './src/components/NewIn/NewIn';
 import FirstPage from './src/components/MainFolder/FirstPage';
 import SearchPage from './src/components/SearchPage/SearchPage';
 import CartPage from './src/components/Cart/CartPage';
+import FavoritePage from './src/components/Favorite/FavoritePage';
 
 const Stack = createStackNavigator();
 
@@ -21,8 +22,9 @@ const App = () => {
         <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="Product" component={ProductPage} />
         <Stack.Screen name="NewIn" component={NewIn} />
-        <Stack.Screen name='Search' component={SearchPage} />
-        <Stack.Screen name="Cart" component={CartPage}/>
+        <Stack.Screen name="Search" component={SearchPage} />
+        <Stack.Screen name="Cart" component={CartPage} />
+        <Stack.Screen name="Favorite" component={FavoritePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

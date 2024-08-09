@@ -4,6 +4,7 @@ import products from '../../assets/products.json';
 
 export const LOAD_PRODUCT_SUCCESS = 'LOAD_PRODUCT_SUCCESS';
 export const SET_SELECTED_CATEGORY = 'SET_SELECTED_CATEGORY';
+export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE';
 
 const areProductsLoaded = () => {
   const realmProducts = realm.objects('Product');
@@ -41,6 +42,27 @@ export const loadProducts = () => {
     const productsArray = Array.from(realmProducts);
     console.log('Product fetched successfully');
     dispatch(loadProductSuccess(productsArray));
+  };
+};
+
+export const toggleFavorite = productId => {
+  return dispatch => {
+    try {
+      realm.write(() => {
+        const product = realm.objectForPrimaryKey('Product', productId);
+
+        if (product) {
+          product.favorite = !product.favorite;
+        }
+
+        dispatch({
+          type: TOGGLE_FAVORITE,
+          payload: productId,
+        });
+      });
+    } catch (error) {
+      console.log('failed to toggle realm ' + error);
+    }
   };
 };
 

@@ -1,20 +1,44 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import CategoryScroll from './CategoryScroll';
 import MainPage from './MainPage';
 import SearchBar from './SearchBar';
 import Header from '../Header';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {useNavigation} from '@react-navigation/native';
 
 const HomePage = () => {
+  const [favorite, setFavorite] = useState(false);
+  const navigation = useNavigation();
+
+  const handleOpenFavorite = () => {
+    setFavorite(prev => (prev === false ? true : false));
+    console.log(favorite);
+  };
+
+  const handleFavoritePage = () => {
+    navigation.navigate('Favorite');
+  };
   return (
     <View style={styles.container}>
       <Header title={'Collections'} />
       <View style={styles.mainHeader}>
         <Text style={styles.mainHeaderText}>Collections</Text>
-        <View style={styles.roundContainer}>
-          <View style={styles.round}></View>
-          <View style={styles.round}></View>
-          <View style={styles.round}></View>
+
+        <View style={styles.favoriteContainer}>
+          <Pressable onPress={handleOpenFavorite}>
+            <View style={styles.roundContainer}>
+              <View style={styles.round}></View>
+              <View style={styles.round}></View>
+              <View style={styles.round}></View>
+            </View>
+          </Pressable>
+          {favorite && (
+            <Pressable style={styles.favorite} onPress={handleFavoritePage}>
+              <Icon name="favorite" size={15} color={'red'} />
+              <Text style={styles.favoriteText}> Favorite</Text>
+            </Pressable>
+          )}
         </View>
       </View>
       <CategoryScroll />
@@ -53,6 +77,25 @@ const styles = StyleSheet.create({
     marginTop: 19,
     flexDirection: 'row',
     gap: 2,
+  },
+  favoriteContainer: {
+    position: 'relative',
+  },
+  favorite: {
+    position: 'absolute',
+    bottom: -20,
+    left: -50,
+    width: 80,
+    flexDirection: 'row',
+    borderWidth: 1,
+    backgroundColor: '#eee',
+    borderRadius: 15,
+    padding: 5,
+    borderColor: '#999',
+    alignItems: 'center',
+  },
+  favoriteText: {
+    color: '#333',
   },
 });
 

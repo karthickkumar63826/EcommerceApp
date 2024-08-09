@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SizeBtn from './SizeBtn';
 import {useDispatch, useSelector} from 'react-redux';
 import {addToCart} from '../../redux/actions/cartAction';
+import {toggleFavorite} from '../../redux/actions/productAction';
 
 const ProductPage = ({route}) => {
   const {id} = route.params;
@@ -22,9 +23,16 @@ const ProductPage = ({route}) => {
   const dispatch = useDispatch();
 
   const products = useSelector(state => state.product.products);
+  const favoriteStatus = useSelector(
+    state => state.product.products.find(p => p.id == id)?.favorites,
+  );
 
   const handleAddToCart = () => {
     dispatch(addToCart(item));
+  };
+
+  const handleFavorite = id => {
+    dispatch(toggleFavorite(id));
   };
 
   useEffect(() => {
@@ -67,9 +75,15 @@ const ProductPage = ({route}) => {
             }}
             style={styles.subImage2}
           />
-          <View style={styles.iconContainer}>
-            <Icon name="favorite-border" size={20} style={styles.icon} />
-          </View>
+          <Pressable
+            style={styles.iconContainer}
+            onPress={() => handleFavorite(item.id)}>
+            <Icon
+              name={favoriteStatus ? 'favorite' : 'favorite-border'}
+              size={20}
+              style={styles.icon}
+            />
+          </Pressable>
         </View>
         <View style={styles.Details}>
           <View style={styles.mainDetails}>

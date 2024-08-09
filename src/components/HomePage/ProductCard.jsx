@@ -2,12 +2,17 @@ import React from 'react';
 import {Image, Pressable, StyleSheet, View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {addToCart} from '../../redux/actions/cartAction';
+import {toggleFavorite} from '../../redux/actions/productAction';
 
 const ProductCard = ({product}) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
+  const favoriteStatus = useSelector(
+    state => state.product.products.find(p => p.id === product.id)?.favorite,
+  );
 
   const handleProduct = id => {
     console.log(id);
@@ -18,11 +23,14 @@ const ProductCard = ({product}) => {
     dispatch(addToCart(product));
   };
 
+  const handleFavorite = id => {
+    dispatch(toggleFavorite(id));
+  };
+
   return (
     <View style={styles.productContainer}>
       <Pressable onPress={() => handleProduct(product.id)}>
         <Image source={{uri: product.img}} style={styles.image} />
-        <Icon name="favorite-border" size={20} style={styles.favorite} />
         <Image
           source={{
             uri: product.subImg1,
@@ -36,6 +44,16 @@ const ProductCard = ({product}) => {
           style={styles.subImage2}
         />
       </Pressable>
+      <Pressable
+        onPress={() => handleFavorite(product.id)}
+        style={styles.favorite}>
+        <Icon
+          name={favoriteStatus ? 'favorite' : 'favorite-border'}
+          size={20}
+          color={'red'}
+        />
+      </Pressable>
+
       <View style={styles.innerContainer}>
         <View style={styles.details}>
           <Text style={styles.price}>${product.price.toFixed(2)}</Text>

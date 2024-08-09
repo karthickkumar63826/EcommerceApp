@@ -9,18 +9,14 @@ const MainPage = () => {
 
   const products = useSelector(state => state.product.products);
 
-  products.forEach(product => {
-    console.log(
-      `product id : ${product.id} contains product price : ${product.price}`,
-    );
-  });
-
-  const selectedCategory = useSelector(state => state.product.selectedCategory);
-
-  const filteredProducts = products.filter(
-    product =>
-      product.category.toLowerCase() === selectedCategory.toLowerCase(),
+  const selectedCategory = useSelector(
+    state => state.product.selectedCategory || '',
   );
+
+  const filteredProducts = products.filter(product => {
+    const category = product.category ? product.category.toLowerCase() : '';
+    return category === selectedCategory.toLowerCase();
+  });
 
   return (
     <View style={styles.container}>
