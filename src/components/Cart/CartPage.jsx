@@ -79,7 +79,7 @@ const CartPage = () => {
         />
       )}
 
-      <Checkout />
+      {cartItems.length > 0 && <Checkout />}
     </View>
   );
 };

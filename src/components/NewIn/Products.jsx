@@ -1,6 +1,13 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  Touchable,
+  TouchableOpacity,
+} from 'react-native';
 import {FlatList, Pressable} from 'react-native-gesture-handler';
 import {useDispatch, useSelector} from 'react-redux';
 import {addToCart} from '../../redux/actions/cartAction';
@@ -30,9 +37,10 @@ const Product = ({item}) => {
             }}
           />
         </Pressable>
-        <Pressable style={styles.addToCart} onPress={handleAddToCart}>
+
+        <TouchableOpacity style={styles.addToCart} onPress={handleAddToCart}>
           <Image source={require('../../assets/addToCart.png')} />
-        </Pressable>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.details}>
@@ -105,6 +113,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 48,
+    zIndex: 1,
+    padding: 5,
   },
   details: {
     width: 80,

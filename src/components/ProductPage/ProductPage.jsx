@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../Header';
 import {
   StyleSheet,
@@ -20,11 +20,12 @@ const ProductPage = ({route}) => {
 
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
+  const [mainImage, setMainImage] = useState('');
   const dispatch = useDispatch();
 
   const products = useSelector(state => state.product.products);
   const favoriteStatus = useSelector(
-    state => state.product.products.find(p => p.id == id)?.favorites,
+    state => state.product.products.find(p => p.id == id)?.favorite,
   );
 
   const handleAddToCart = () => {
@@ -35,13 +36,19 @@ const ProductPage = ({route}) => {
     dispatch(toggleFavorite(id));
   };
 
+  const handleImageClick = imageUri => {
+    console.log('Image clicked:', imageUri); // Debug log
+    setMainImage(imageUri);
+  };
+
   useEffect(() => {
     const product = products.find(p => p.id === id);
-    setItem(product);
-    setTimeout(() => {
+    if (product) {
+      setItem(product);
+      setMainImage(product.img);
       setLoading(false);
-    }, 500);
-  }, []);
+    }
+  }, [id, products]);
 
   if (loading) {
     return (
@@ -52,29 +59,23 @@ const ProductPage = ({route}) => {
   }
 
   return (
-    <View style={styles.conatiner}>
+    <View style={styles.container}>
       <Header title={'Products'} />
 
       <ScrollView style={styles.innerContainer}>
         <View style={styles.imageContainer}>
-          <Image
-            source={{
-              uri: item.img,
-            }}
-            style={styles.image}
-          />
-          <Image
-            source={{
-              uri: item.subImg1,
-            }}
-            style={styles.subImage1}
-          />
-          <Image
-            source={{
-              uri: item.subImg2,
-            }}
-            style={styles.subImage2}
-          />
+          <Image source={{uri: mainImage}} style={styles.image} />
+          <View style={styles.subImageContainer}>
+            <Pressable onPress={() => handleImageClick(item.img)}>
+              <Image source={{uri: item.img}} style={styles.subImage} />
+            </Pressable>
+            <Pressable onPress={() => handleImageClick(item.subImg1)}>
+              <Image source={{uri: item.subImg1}} style={styles.subImage} />
+            </Pressable>
+            <Pressable onPress={() => handleImageClick(item.subImg2)}>
+              <Image source={{uri: item.subImg2}} style={styles.subImage} />
+            </Pressable>
+          </View>
           <Pressable
             style={styles.iconContainer}
             onPress={() => handleFavorite(item.id)}>
@@ -100,7 +101,7 @@ const ProductPage = ({route}) => {
             Also, fleece fabrics are more breathable than others, so that's
             another characteristic to look out for. Longevity: Both high-quality
             cotton and polyester are great hoodie fabrics, and when combined,
-            they have increased longevity
+            they have increased longevity.
           </Text>
         </View>
       </ScrollView>
@@ -117,49 +118,37 @@ const ProductPage = ({route}) => {
 const styles = StyleSheet.create({
   loadContainer: {
     flex: 1,
-    alignContent: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
   },
-  conatiner: {
+  container: {
     flex: 1,
     backgroundColor: 'white',
   },
   innerContainer: {
     flex: 1,
     flexDirection: 'column',
-    alignContent: 'center',
   },
   imageContainer: {
-    position: 'relative',
+    alignItems: 'center',
+    marginBottom: 20,
   },
   image: {
     width: 280,
     height: 280,
-    objectFit: 'cover',
-    borderRadius: 150,
-    marginLeft: 40,
+    borderRadius: 140,
+    marginBottom: 10,
   },
-  subImage1: {
+  subImageContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  subImage: {
     width: 45,
     height: 45,
-    position: 'absolute',
-    right: 0,
-    bottom: 110,
-    right: 55,
-    borderRadius: 25,
-    objectFit: 'fill',
+    borderRadius: 22.5,
+    marginHorizontal: 5,
   },
-  subImage2: {
-    width: 45,
-    height: 45,
-    position: 'absolute',
-    right: 0,
-    bottom: 60,
-    right: 65,
-    borderRadius: 25,
-    objectFit: 'contain',
-  },
-
   iconContainer: {
     width: 50,
     height: 50,
@@ -167,20 +156,16 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'orange',
     position: 'absolute',
-    bottom: 0,
-    left: 25,
-    alignContent: 'center',
+    top: 10,
+    left: 10,
+    alignItems: 'center',
     justifyContent: 'center',
   },
   icon: {
     color: '#524eb7',
-    paddingLeft: 13,
   },
   Details: {
-    marginTop: 10,
-    padding: 20,
-    flexDirection: 'column',
-    gap: 10,
+    paddingHorizontal: 20,
     paddingBottom: 10,
   },
   mainDetails: {
@@ -198,9 +183,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   desContainer: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    width: '100%',
+    paddingHorizontal: 20,
     marginTop: 20,
   },
   description: {
@@ -214,7 +197,6 @@ const styles = StyleSheet.create({
     height: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 1,
   },
   shadow: {
     position: 'absolute',
