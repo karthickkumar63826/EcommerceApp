@@ -5,11 +5,13 @@ import {useSelector} from 'react-redux';
 const Checkout = () => {
   const totalPrice = useSelector(state => state.cart.price);
 
+  const addedPrice = totalPrice + 5;
+
   return (
     <View style={styles.container}>
       <View style={styles.payment}>
         <Text style={styles.text}>Sub Total</Text>
-        <Text style={styles.price}>${totalPrice}</Text>
+        <Text style={styles.price}>${totalPrice.toFixed(2)}</Text>
       </View>
       <View style={styles.payments}>
         <Text style={styles.text}>Shipping</Text>
@@ -17,8 +19,8 @@ const Checkout = () => {
       </View>
       <View style={styles.total}>
         <Text style={styles.text}>Total</Text>
-        <Text style={styles.price}>${totalPrice + 5.0}</Text>
-        <Text style={styles.price}>${totalPrice + 5.0}</Text>
+        <Text style={styles.price}>${addedPrice.toFixed(2)}</Text>
+        <Text style={styles.price}>${addedPrice.toFixed(2)}</Text>
       </View>
       <Pressable style={styles.CheckoutBtn}>
         <Text style={styles.checkoutText}>CHECKOUT</Text>

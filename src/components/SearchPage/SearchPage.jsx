@@ -45,7 +45,7 @@ const Product = ({item}) => {
       </View>
 
       <View style={styles.details}>
-        <Text style={styles.price}>${item.price}</Text>
+        <Text style={styles.price}>${item.price.toFixed(2)}</Text>
         <Text style={styles.title}>{item.title}</Text>
       </View>
     </View>

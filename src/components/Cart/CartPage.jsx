@@ -41,7 +41,7 @@ const CartItem = ({item}) => {
         />
         <View style={styles.details}>
           <Text style={styles.title}>{item.product.title}</Text>
-          <Text style={styles.price}>${item.product.price}</Text>
+          <Text style={styles.price}>${item.product.price.toFixed(2)}</Text>
           <View style={styles.noOfItem}>
             <TouchableOpacity style={styles.minus} onPress={handleDecrease}>
               <Icon name="remove" size={15} color="black" />

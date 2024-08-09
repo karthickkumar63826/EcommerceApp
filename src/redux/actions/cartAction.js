@@ -10,8 +10,10 @@ export const loadCartItems = () => {
   return dispatch => {
     const realmCartItems = realm.objects('CartItem');
     const uniqueCartItems = Array.from(realmCartItems).reduce((acc, item) => {
-      const exists = acc.some(existingItem => existingItem.product.id === item.product.id);
-      if (!exists) acc.push({ product: item.product, quantity: item.quantity });
+      const exists = acc.some(
+        existingItem => existingItem.product.id === item.product.id,
+      );
+      if (!exists) acc.push({product: item.product, quantity: item.quantity});
       return acc;
     }, []);
 
@@ -22,13 +24,13 @@ export const loadCartItems = () => {
   };
 };
 
-
 export const addToCart = product => {
   return dispatch => {
     realm.write(() => {
       const existing = realm
         .objects('CartItem')
         .filtered(`product.id == ${product.id}`)[0];
+      console.log(existing);
       if (existing) {
         existing.quantity += 1;
       } else {
@@ -84,7 +86,9 @@ export const decreaseQuantity = productId => {
       const cartItem = realm
         .objects('CartItem')
         .filtered(`product.id == ${productId}`)[0];
-      cartItem.quantity -= 1;
+      cartItem.quantity < 1
+        ? (cartItem.quantity = 1)
+        : (cartItem.quantity -= 1);
     });
     console.log('item quantity decreased');
 

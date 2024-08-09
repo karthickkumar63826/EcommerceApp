@@ -19,7 +19,7 @@ const CartItemSchema = {
   name: 'CartItem',
   properties: {
     product: 'Product',
-    quantity: 'int',
+    quantity: {type: 'int', default: 1},
   },
 };
 
